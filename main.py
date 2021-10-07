@@ -1,7 +1,7 @@
 import random
 a = 0
 u = 5
-t = ['слон','широ','туалет']
+t = ['солон','широ','туалет']
 flag = False
 flag1 = False
 
@@ -32,38 +32,27 @@ while True:
                break
 
            elif(u == 0):
-               print("Вы не угадали букву и проиграли")
+               print("Вы не угадали слово и проиграли")
                break
+
            elif(len(val) < 2):
-
-                    for y in range(len(word)):
-                        if(flag1 == False):
-                            print(word[y])
-
-                            if word[y] == val:
-                                for n in range(len(te)):
-                                    if (word[-1] == word[y]):
-                                        flag1 = True
-                                        break
-                                    else:
-                                        te[y] = val
-                                        test = ''.join(te)
-
-                            elif(flag1):
-                                    break
-                            elif(u > 0 and word[-1] == word[y]):
-                                u -= 1
-                                print(word[y])
-                                print("Вы не угадали букву у вас осталось {0} попыток".format(u))
-                                break
+               try:
+                   n = word.index(val)
+                   te[n] = word[n]
+                   test = ''.join(te)
+                   print("вы угадали букву")
 
 
-                            elif(u == 0):
-                                print("Вы не угадали букву и проиграли ")
-                                flag = True
-                                break
-                        else:
-                            break
+               except ValueError:
+                   if(u > 0):
+                        u =- 1
+                        print("вы не угадали число, у вас осталось {0} попыток".format(u))
+
+                   elif(u == 0):
+                        print("вы не угадали букву, и проиграли")
+                        break
+
+
 
            elif(len(val) > 1):
                     u -= 1
@@ -71,8 +60,6 @@ while True:
 
     else:
         break
-
-
 
 
 
