@@ -1,0 +1,30 @@
+if(u > 0):
+       print(test)
+       print("введите правильное слово или букву слова")
+       val = input()
+       if(val == word):
+           print("Вы угадали слово поздравляю!")
+           break
+       elif(test == word):
+           print("Вы угадали слово поздравляю!")
+           break
+
+
+       elif(len(val) < 2):
+                for y in range(len(word)):
+                    if word[y] == val:
+                        for n in range(len(te)):
+                            te[y] = val
+
+                    elif(u > 0):
+                        u =- 1
+                        print("Вы не угадали букву у вас осталось {0} попыток".format(u))
+
+                    else:
+                        print("Вы не угадали букву и проиграли ")
+                        
+                        break
+                    test = ''.join(te)
+       elif(len(val) > 1):
+                u = - 1
+                print("Вы не угадали слово у вас осталось {0} попыток".format(u))
