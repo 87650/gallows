@@ -1,4 +1,5 @@
 import random
+import re
 a = 0
 u = 5
 t = ['солон','широ','туалет']
@@ -39,14 +40,17 @@ while True:
                try:
                    n = word.index(val)
                    te[n] = word[n]
-                   test = ''.join(te)
+
                    print("вы угадали букву")
-
-
+                   #result = re.match(r'{0}'.format(val), word)
+                   for i in range(len(word)):
+                       if(word[i] == val):
+                            te[i] = val
+                   test = ''.join(te)
                except ValueError:
                    if(u > 0):
-                        u =- 1
-                        print("вы не угадали число, у вас осталось {0} попыток".format(u))
+                        u -= 1
+                        print("вы не угадали букву, у вас осталось {0} попыток".format(u))
 
                    elif(u == 0):
                         print("вы не угадали букву, и проиграли")
