@@ -2,7 +2,7 @@ import random
 import re
 a = 0
 u = 5
-t = ['солон','широ','туалет']
+t = ['доктор','виселица','автобус']
 flag = False
 flag1 = False
 
