@@ -1,5 +1,6 @@
 import random
 import re
+counter = 0
 a = 0
 u = 5
 t = ['доктор','виселица','автобус']
@@ -19,6 +20,7 @@ test = ''.join(te)
 print(word)
 
 while True:
+
     flag1 = False
     if(flag == False):
         if(u > 0):
@@ -38,17 +40,38 @@ while True:
 
            elif(len(val) < 2):
                try:
+                   values = []
                    n = word.index(val)
-                   te[n] = word[n]
+                   #te[n] = word[n]
+                   print(n)
+                   if(n == counter):
+                       print("вы угадали букву")
+                       #result = re.match(r'{0}'.format(val), word)
+                       matches = re.compile(r'{0}'.format(val), re.MULTILINE | re.DOTALL).findall(word)
+                       for inp in matches:
+                           values.append(inp)
 
-                   print("вы угадали букву")
-                   #result = re.match(r'{0}'.format(val), word)
-                   for i in range(len(word)):
-                       if(word[i] == val):
-                            te[i] = val
-                   test = ''.join(te)
+                       for i in range(len(word)):
+                               if(word[i] == val and i == counter):
+                                  if(len(values) == 1):
+                                      te[i] = val
+                                      #test = ''.join(te)
+                                      print("lol")
+
+                                  if(len(values) > 1):
+                                      for s in range(len(word)):
+                                          if (word[s] == val):
+                                                te[s] = val
+                                                print('test')
+
+
+                       test = ''.join(te)
+                       print(te[0])
+                   else:
+                       raise ValueError("t")
                except ValueError:
                    if(u > 0):
+                        counter = + 1
                         u -= 1
                         print("вы не угадали букву, у вас осталось {0} попыток".format(u))
 
@@ -60,10 +83,12 @@ while True:
 
            elif(len(val) > 1):
                     u -= 1
+                    counter = + 1
                     print("Вы не угадали слово у вас осталось {0} попыток".format(u))
 
     else:
         break
+    counter = + 1
 
 
 
