@@ -3,7 +3,8 @@ import re
 counter = 0
 a = 0
 u = 5
-t = ['доктор','виселица','автобус']
+p = []
+t = ['доктор','виселицаи','автобус']
 flag = False
 flag1 = False
 
@@ -39,6 +40,9 @@ while True:
                break
 
            elif(len(val) < 2):
+               for h in range(1, len(p)):
+                   if(p[h] == counter):
+                       counter += 1
                try:
                    values = []
                    n = word.index(val)
@@ -63,6 +67,8 @@ while True:
                                           if (word[s] == val):
                                                 te[s] = val
                                                 print('test')
+                                                p.append(s)
+
 
 
                        test = ''.join(te)
@@ -71,7 +77,7 @@ while True:
                        raise ValueError("t")
                except ValueError:
                    if(u > 0):
-                        counter = + 1
+                        counter -= 1
                         u -= 1
                         print("вы не угадали букву, у вас осталось {0} попыток".format(u))
 
@@ -83,12 +89,13 @@ while True:
 
            elif(len(val) > 1):
                     u -= 1
-                    counter = + 1
+                    counter -= 1
                     print("Вы не угадали слово у вас осталось {0} попыток".format(u))
 
     else:
         break
-    counter = + 1
+    counter += 1
+    print(counter)
 
 
 
