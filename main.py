@@ -60,13 +60,13 @@ while True:
                                   if(len(values) == 1):
                                       te[i] = val
                                       #test = ''.join(te)
-                                      print("lol")
+
 
                                   if(len(values) > 1):
                                       for s in range(len(word)):
                                           if (word[s] == val):
                                                 te[s] = val
-                                                print('test')
+
                                                 p.append(s)
 
 
@@ -95,7 +95,7 @@ while True:
     else:
         break
     counter += 1
-    print(counter)
+
 
 
 
